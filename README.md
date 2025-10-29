@@ -2,11 +2,12 @@
 
 **Author:** Georgios Kitsakis
 **Domain:** Healthcare AI, Medical Imaging, Deep Learning
-**Status:** Research Project
+**Status:** ✅ Complete - Production Ready
+**GitHub:** [Healthcare-Pneumonia-Detection](https://github.com/kitsakisGk/Healthcare-Pneumonia-Detection)
 
 ## Overview
 
-This project demonstrates an end-to-end deep learning pipeline for detecting pneumonia from chest X-ray images. The system combines state-of-the-art computer vision techniques with explainable AI to provide transparent, interpretable predictions suitable for medical applications.
+This project demonstrates an end-to-end deep learning pipeline for detecting pneumonia from chest X-ray images. The system combines state-of-the-art computer vision techniques with explainable AI (Grad-CAM) to provide transparent, interpretable predictions suitable for medical applications. Features a complete web application for real-time inference.
 
 ## Motivation
 
@@ -19,99 +20,179 @@ Pneumonia is a leading cause of death worldwide, particularly in children under 
 
 ## Key Features
 
-- **Data Processing Pipeline**: Automated preprocessing, normalization, and augmentation
-- **Baseline CNN**: Custom convolutional neural network architecture
-- **Transfer Learning**: Fine-tuned ResNet50 for improved accuracy
-- **Explainable AI**: Grad-CAM visualization showing model attention
-- **Web Application**: Interactive Streamlit interface for real-time predictions
-- **Comprehensive Metrics**: Accuracy, precision, recall, F1-score, sensitivity, specificity
+✅ **Complete End-to-End Pipeline**
+- Data exploration and preprocessing with augmentation
+- Transfer learning with ResNet50 (ImageNet pre-trained)
+- 89.58% test accuracy achieved
+- Training time: 226 minutes on CPU
+
+✅ **Explainable AI**
+- Grad-CAM heatmap visualizations
+- Shows model attention regions on X-rays
+- Validates clinical relevance of predictions
+
+✅ **Interactive Web Application**
+- Upload and analyze X-rays in real-time
+- Confidence scores for both classes
+- Downloadable analysis reports
+- User-friendly interface with medical disclaimers
+
+✅ **Professional Documentation**
+- Comprehensive Jupyter notebooks for each phase
+- Detailed visualizations and metrics
+- Clean git history with meaningful commits
 
 ## Dataset
 
 **Source:** [Chest X-Ray Images (Pneumonia) - Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
 
-- **Total Images:** ~5,800 chest X-rays
-- **Classes:** Normal, Pneumonia
-- **Split:** Train/Test/Validation
-- **Labels:** Validated by medical professionals
+- **Total Images:** 5,856 chest X-rays
+- **Training Set:** 5,216 images (NORMAL: 1,341 | PNEUMONIA: 3,875)
+- **Validation Set:** 16 images (NORMAL: 8 | PNEUMONIA: 8)
+- **Test Set:** 624 images (NORMAL: 234 | PNEUMONIA: 390)
+- **Classes:** Binary classification (Normal vs Pneumonia)
+- **Image Format:** JPEG, grayscale
+- **Resolution:** Variable (224x224 after preprocessing)
 
 ## Project Structure
 
 ```
-healthcare-ai-pneumonia/
+AI-Powered-Disease-Detection/
 │
-├── data/                   # Dataset (train/test/val folders)
-├── notebooks/              # Jupyter notebooks for each phase
-│   ├── 01_preprocessing.ipynb
-│   ├── 02_training.ipynb
-│   └── 03_evaluation.ipynb
-├── models/                 # Saved model weights
-├── app/                    # Streamlit web application
-│   ├── app.py
-│   └── requirements.txt
-├── reports/                # Results, plots, and analysis
-│   ├── confusion_matrix.png
-│   ├── gradcam_example.png
-│   └── results_summary.md
-└── README.md
+├── data/                      # Dataset (organized by train/test/val)
+│   ├── train/                 # 5,216 training images
+│   ├── test/                  # 624 test images
+│   └── val/                   # 16 validation images
+│
+├── notebooks/                 # Complete pipeline notebooks
+│   ├── 01_preprocessing.ipynb    # Data exploration & preprocessing
+│   ├── 02_training.ipynb         # ResNet50 training (89.58% accuracy)
+│   └── 03_gradcam.ipynb          # Explainability visualizations
+│
+├── models/                    # Trained model weights
+│   └── resnet50_pneumonia.pth    # Final trained model (220 MB)
+│
+├── app/                       # Web application
+│   ├── streamlit_app.py          # Interactive web interface
+│   └── README.md                 # App usage instructions
+│
+├── reports/                   # Visualizations and results
+│   ├── training_curves.png       # Loss/accuracy over epochs
+│   ├── confusion_matrix.png      # Classification metrics
+│   ├── class_distribution.png    # Dataset statistics
+│   ├── augmentation_examples.png # Data augmentation samples
+│   ├── gradcam_normal_*.png      # Grad-CAM for normal cases
+│   └── gradcam_pneumonia_*.png   # Grad-CAM for pneumonia cases
+│
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
 ```
 
 ## Tech Stack
 
-- **Deep Learning:** PyTorch, TorchVision
-- **Data Processing:** NumPy, Pandas, OpenCV, Pillow
+- **Deep Learning:** PyTorch 2.8.0, TorchVision 0.20.0
+- **Model Architecture:** ResNet50 (transfer learning with ImageNet weights)
+- **Data Processing:** NumPy, Pandas, Pillow
 - **Visualization:** Matplotlib, Seaborn
-- **Explainability:** pytorch-grad-cam
-- **Deployment:** Streamlit
-- **Metrics:** scikit-learn
+- **Explainability:** pytorch-grad-cam 1.6.0 (Grad-CAM heatmaps)
+- **Web Application:** Streamlit 1.30.0
+- **Development:** Jupyter Notebook, Python 3.9+
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/healthcare-ai-pneumonia.git
-cd healthcare-ai-pneumonia
+git clone https://github.com/kitsakisGk/Healthcare-Pneumonia-Detection.git
+cd Healthcare-Pneumonia-Detection
 
-# Create virtual environment
-python -m venv env
-source env/bin/activate  # Windows: env\Scripts\activate
+# Create virtual environment (recommended)
+python -m venv .venv
+
+# Activate virtual environment
+# Windows:
+.venv\Scripts\activate
+# Linux/Mac:
+source .venv/bin/activate
 
 # Install dependencies
-pip install -r app/requirements.txt
+pip install -r requirements.txt
 ```
+
+**Note:** The trained model file (`models/resnet50_pneumonia.pth`) is required to run the web application. Download the dataset from Kaggle and place it in the `data/` folder to retrain from scratch.
 
 ## Usage
 
-### 1. Data Preprocessing
+### Running the Web Application
+
+The quickest way to see the project in action:
+
+```bash
+# From project root directory
+streamlit run app/streamlit_app.py
+```
+
+The app will open in your browser at `http://localhost:8501`. Upload a chest X-ray image to get instant predictions with Grad-CAM visualizations!
+
+### Reproducing the Pipeline
+
+Follow the notebooks in order to reproduce the complete pipeline:
+
+**Phase 1: Data Exploration & Preprocessing**
 ```bash
 jupyter notebook notebooks/01_preprocessing.ipynb
 ```
+- Analyzes dataset statistics and class distribution
+- Creates augmentation examples
+- Saves visualizations to `reports/`
 
-### 2. Model Training
+**Phase 2: Model Training**
 ```bash
 jupyter notebook notebooks/02_training.ipynb
 ```
+- Trains ResNet50 with transfer learning
+- Takes ~226 minutes on CPU (faster with GPU)
+- Achieves 89.58% test accuracy
+- Saves model to `models/resnet50_pneumonia.pth`
 
-### 3. Evaluation & Grad-CAM
+**Phase 3: Model Explainability**
 ```bash
-jupyter notebook notebooks/03_evaluation.ipynb
+jupyter notebook notebooks/03_gradcam.ipynb
 ```
-
-### 4. Run Web Application
-```bash
-streamlit run app/app.py
-```
+- Generates Grad-CAM heatmaps
+- Creates visualization comparisons
+- Saves results to `reports/`
 
 ## Results
 
-| Metric | Baseline CNN | ResNet50 (Transfer Learning) |
-|--------|--------------|------------------------------|
-| Accuracy | ~87% | ~93% |
-| Precision | TBD | TBD |
-| Recall | TBD | TBD |
-| F1-Score | TBD | TBD |
+### Final Model Performance
 
-*Results will be updated after training completion*
+**Model:** ResNet50 with Transfer Learning (ImageNet pre-trained)
+
+| Metric | Value |
+|--------|-------|
+| **Test Accuracy** | **89.58%** |
+| **Training Time** | 226 minutes (CPU) |
+| **Epochs** | 5 (with early stopping patience) |
+| **Best Validation Accuracy** | 87.50% (Epoch 3) |
+| **Final Test Loss** | 0.2871 |
+
+### Training Details
+
+- **Architecture:** ResNet50 with custom classifier head
+- **Transfer Learning:** Froze layers 1-3, fine-tuned layer 4 + FC layers
+- **Optimizer:** Adam (lr=0.0001)
+- **Loss Function:** CrossEntropyLoss with class weights (1:3 ratio)
+- **Learning Rate Scheduler:** ReduceLROnPlateau
+- **Data Augmentation:** Random rotation, horizontal flip, color jitter
+- **Regularization:** Dropout (0.5, 0.3), early stopping
+
+### Model Insights
+
+The confusion matrix and Grad-CAM visualizations show that the model:
+- Successfully focuses on lung regions (clinically relevant)
+- Identifies infiltrates and consolidations in pneumonia cases
+- Maintains high sensitivity for pneumonia detection
+- Provides transparent, explainable predictions via Grad-CAM
 
 ## Model Explainability
 
@@ -121,15 +202,16 @@ This project uses Grad-CAM (Gradient-weighted Class Activation Mapping) to visua
 - Identifying potential model biases
 - Validating clinical relevance of predictions
 
-## Roadmap
+## Project Phases - Complete
 
-- [x] Project setup and repository initialization
-- [ ] Data exploration and preprocessing pipeline
-- [ ] Baseline CNN model development
-- [ ] Transfer learning with ResNet50
-- [ ] Grad-CAM implementation
-- [ ] Streamlit web application
-- [ ] Results documentation and reporting
+- [x] **Phase 0:** Project setup and repository initialization
+- [x] **Phase 1:** Data exploration and preprocessing pipeline
+- [x] **Phase 2:** Transfer learning with ResNet50 (89.58% accuracy)
+- [x] **Phase 3:** Grad-CAM explainability implementation
+- [x] **Phase 4:** Streamlit web application deployment
+- [x] **Phase 5:** Complete documentation and results reporting
+
+All phases completed successfully with clean git history!
 
 ## Ethical Considerations
 
