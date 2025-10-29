@@ -1,0 +1,22 @@
+# Deep Learning
+torch==2.8.0
+torchvision==0.20.0
+
+# Data Processing
+numpy==1.24.3
+pandas==2.0.3
+pillow==10.0.0
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Explainability
+pytorch-grad-cam==1.6.0
+
+# Web Application
+streamlit==1.30.0
+
+# Jupyter
+jupyter==1.0.0
+ipykernel==6.25.0
