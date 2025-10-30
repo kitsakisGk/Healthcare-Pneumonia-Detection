@@ -120,6 +120,24 @@ pip install -r requirements.txt
 
 **Note:** The trained model file (`models/resnet50_pneumonia.pth`) is required to run the web application. Download the dataset from Kaggle and place it in the `data/` folder to retrain from scratch.
 
+---
+
+## 🚀 Quick Demo
+
+The interactive web application allows you to:
+
+1. **Upload** any chest X-ray image (JPEG/PNG)
+2. **Get instant predictions** with confidence scores
+3. **View Grad-CAM heatmaps** showing where the AI focuses
+4. **Download analysis reports** for documentation
+
+**Try it yourself:**
+```bash
+streamlit run app/streamlit_app.py
+```
+
+Then open `http://localhost:8501` in your browser!
+
 ## Usage
 
 ### Running the Web Application
@@ -247,4 +265,28 @@ For questions or collaboration opportunities, please reach out via GitHub Issues
 
 ---
 
-*This project demonstrates proficiency in AI/ML engineering, data science, medical imaging analysis, and software deployment - skills valuable for healthcare technology roles in Switzerland and beyond.*
+## 📊 Key Achievements Summary
+
+This project demonstrates comprehensive AI engineering skills:
+
+✅ **End-to-End ML Pipeline**: From raw data to production-ready web app
+✅ **Medical AI Expertise**: Healthcare domain knowledge with clinical validation
+✅ **Deep Learning**: Transfer learning, ResNet50, 89.58% accuracy
+✅ **Explainable AI**: Grad-CAM implementation for model transparency
+✅ **Software Engineering**: Clean code, Git workflow, deployment
+✅ **Web Development**: Interactive Streamlit application
+
+**Technologies Mastered:**
+- PyTorch & Computer Vision
+- Medical Image Analysis
+- Model Explainability (XAI)
+- Full-Stack ML Development
+- Professional Documentation
+
+**Perfect for:**
+- Healthcare AI/ML Engineer roles
+- Computer Vision positions
+- Medical Technology companies
+- Research & Development teams
+
+*Built by Georgios Kitsakis - Showcasing skills for healthcare technology roles in Switzerland and internationally.*
