@@ -22,9 +22,10 @@ Pneumonia is a leading cause of death worldwide, particularly in children under 
 
 ✅ **Complete End-to-End Pipeline**
 - Data exploration and preprocessing with augmentation
-- Transfer learning with ResNet50 (ImageNet pre-trained)
-- 89.58% test accuracy achieved
-- Training time: 226 minutes on CPU
+- **Two state-of-the-art models implemented:**
+  - **ResNet50**: 89.58% test accuracy (226 min training)
+  - **EfficientNet-B3**: 91.19% test accuracy (115 min training) ⭐ **BEST**
+- Model comparison and architecture analysis
 
 ✅ **Explainable AI**
 - Grad-CAM heatmap visualizations
@@ -221,17 +222,47 @@ jupyter notebook notebooks/03_gradcam.ipynb
 
 ## Results
 
-### Final Model Performance
+### Model Comparison
 
-**Model:** ResNet50 with Transfer Learning (ImageNet pre-trained)
+Two state-of-the-art architectures were implemented and compared:
+
+| Metric | ResNet50 | EfficientNet-B3 | Winner |
+|--------|----------|-----------------|--------|
+| **Test Accuracy** | 89.58% | **91.19%** | ⭐ EfficientNet |
+| **Training Time** | 226 min | **115 min** | ⭐ EfficientNet |
+| **Model Size** | 211 MB | **116 MB** | ⭐ EfficientNet |
+| **Image Size** | 224×224 | 300×300 | - |
+| **Parameters** | ~25M | ~12M | ⭐ EfficientNet |
+
+**Winner: EfficientNet-B3** achieves better accuracy (+1.61%) in half the training time with fewer parameters!
+
+---
+
+### EfficientNet-B3 Performance (Best Model)
+
+| Metric | Value |
+|--------|-------|
+| **Test Accuracy** | **91.19%** ⭐ |
+| **Training Time** | 115 minutes (CPU) |
+| **Improvement over ResNet50** | +1.61% |
+| **Speed Improvement** | 2x faster training |
+
+![EfficientNet Training Curves](reports/efficientnet_training_curves.png)
+*EfficientNet-B3 training curves showing faster convergence and better performance*
+
+![EfficientNet Confusion Matrix](reports/efficientnet_confusion_matrix.png)
+*Confusion matrix for EfficientNet-B3 - high accuracy across both classes*
+
+---
+
+### ResNet50 Performance (Baseline)
 
 | Metric | Value |
 |--------|-------|
 | **Test Accuracy** | **89.58%** |
 | **Training Time** | 226 minutes (CPU) |
-| **Epochs** | 5 (with early stopping patience) |
+| **Epochs** | 5 (with early stopping) |
 | **Best Validation Accuracy** | 87.50% (Epoch 3) |
-| **Final Test Loss** | 0.2871 |
 
 ### Training Details
 
@@ -283,12 +314,12 @@ This project is intended for **research and educational purposes only**. It shou
 
 Potential improvements and extensions for this project:
 
-- **Multi-class classification**: Expand to detect COVID-19, tuberculosis, and other conditions
+- **Multi-class classification**: Expand to detect COVID-19, tuberculosis, and other lung conditions
 - **DICOM integration**: Support standard medical imaging format (DICOM files)
 - **Cloud deployment**: Deploy on AWS/Azure/GCP for scalability
 - **Mobile application**: Create mobile app for point-of-care diagnosis
-- **Model comparison**: Add EfficientNet and compare multiple architectures
-- **Hospital integration**: Connect with existing hospital information systems
+- **Model ensemble**: Combine ResNet50 + EfficientNet predictions for even higher accuracy
+- **Hospital integration**: Connect with existing hospital information systems (HL7/FHIR)
 
 ## References
 
