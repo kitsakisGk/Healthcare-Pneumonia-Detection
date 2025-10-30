@@ -44,11 +44,16 @@ data/train/
 data/test/
 data/val/
 *.jpg
-*.png
 *.jpeg
 *.dcm
 *.npy
 *.npz
+
+# Allow PNG files in reports folder (for README visualization)
+!reports/*.png
+
+# But block PNG in data folders
+data/**/*.png
 
 # Model files (can be large)
 *.pth
