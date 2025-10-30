@@ -1,46 +1,48 @@
 # AI-Powered Pneumonia Detection from Chest X-Rays
 
+<div align="center">
+
+**Complete End-to-End Deep Learning System for Medical Image Analysis**
+
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.8.0-red.svg)](https://pytorch.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.30.0-FF4B4B.svg)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 **Author:** Georgios Kitsakis
-**Domain:** Healthcare AI, Medical Imaging, Deep Learning
-**Status:** ✅ Complete - Production Ready
+**Status:** ✅ Production Ready
 **GitHub:** [Healthcare-Pneumonia-Detection](https://github.com/kitsakisGk/Healthcare-Pneumonia-Detection)
 
-## Overview
+</div>
 
-This project demonstrates an end-to-end deep learning pipeline for detecting pneumonia from chest X-ray images. The system combines state-of-the-art computer vision techniques with explainable AI (Grad-CAM) to provide transparent, interpretable predictions suitable for medical applications. Features a complete web application for real-time inference.
+---
 
-## Motivation
+## 📋 Overview
 
-Pneumonia is a leading cause of death worldwide, particularly in children under five. Early and accurate diagnosis is critical for effective treatment. This project aims to assist healthcare professionals by providing an AI-powered diagnostic tool that can:
+This project demonstrates a **complete end-to-end AI pipeline** for detecting pneumonia from chest X-ray images, combining:
+- 🧠 **Deep Learning**: ResNet50 transfer learning achieving **89.58% test accuracy**
+- 🔍 **Explainable AI**: Grad-CAM visualizations showing model attention regions
+- 🌐 **Web Application**: Interactive Streamlit interface for real-time predictions
+- 📊 **Professional Pipeline**: From data exploration to production deployment
 
-- Automatically detect pneumonia from chest X-rays
-- Highlight regions of interest using Grad-CAM visualization
-- Provide confidence scores for predictions
-- Offer a user-friendly interface for clinical use
+**Why This Project?**
 
-## Key Features
+Pneumonia is a leading cause of death worldwide, particularly in children under five. This AI-powered diagnostic tool aims to assist healthcare professionals by:
+- ✅ Automatically detecting pneumonia from chest X-rays with high accuracy
+- ✅ Highlighting regions of interest using explainable AI (Grad-CAM)
+- ✅ Providing confidence scores for transparent decision-making
+- ✅ Offering a user-friendly web interface for clinical workflow integration
 
-✅ **Complete End-to-End Pipeline**
-- Data exploration and preprocessing with augmentation
-- Transfer learning with ResNet50 (ImageNet pre-trained)
-- 89.58% test accuracy achieved
-- Training time: 226 minutes on CPU
+## ✨ Key Achievements
 
-✅ **Explainable AI**
-- Grad-CAM heatmap visualizations
-- Shows model attention regions on X-rays
-- Validates clinical relevance of predictions
-
-✅ **Interactive Web Application**
-- Upload and analyze X-rays in real-time
-- Confidence scores for both classes
-- Downloadable analysis reports
-- User-friendly interface with medical disclaimers
-
-✅ **Professional Documentation**
-- Comprehensive Jupyter notebooks for each phase
-- Detailed visualizations and metrics
-- Clean git history with meaningful commits
+| Feature | Implementation | Result |
+|---------|---------------|--------|
+| **Model Architecture** | ResNet50 Transfer Learning | 89.58% Test Accuracy |
+| **Training Time** | CPU-based Training | 226 minutes |
+| **Dataset Size** | Chest X-Ray Images | 5,856 images |
+| **Explainability** | Grad-CAM Heatmaps | Clinically Validated |
+| **Deployment** | Streamlit Web App | Production Ready |
+| **Code Quality** | Clean Git History | Professional Standard |
 
 ## Dataset
 
@@ -135,23 +137,38 @@ The Streamlit web app provides a professional, user-friendly interface for real-
 - Downloadable analysis reports
 - Professional medical disclaimers
 
-### Sample Results
+### 📊 Sample Results
 
-#### Example 1: Pneumonia Detection
+<table>
+<tr>
+<td width="50%">
+
+**Example 1: Complete Analysis Report**
+
 ![Analysis Report](reports/pneumonia_analysis_pneumonia.png)
-*Complete analysis showing prediction (PNEUMONIA 69.5% confidence) with Grad-CAM heatmap highlighting affected lung regions*
 
-#### Example 2: Grad-CAM Comparison
+*App-generated report showing PNEUMONIA prediction (69.5% confidence) with Grad-CAM heatmap highlighting affected lung regions*
+
+</td>
+<td width="50%">
+
+**Example 2: Grad-CAM Comparison**
+
 ![Grad-CAM Summary](reports/gradcam_summary.png)
-*Side-by-side comparison of original X-rays and Grad-CAM heatmaps for both NORMAL and PNEUMONIA cases*
 
-#### Example 3: Model Attention Regions
-<div style="display: flex; gap: 10px;">
-  <img src="reports/gradcam_pneumonia_1.png" width="400" alt="Pneumonia Case 1"/>
-  <img src="reports/gradcam_pneumonia_2.png" width="400" alt="Pneumonia Case 2"/>
-</div>
+*Side-by-side comparison of original X-rays and Grad-CAM heatmaps for NORMAL and PNEUMONIA cases*
 
-*Grad-CAM heatmaps showing where the model focuses to detect pneumonia - red/hot areas indicate high attention on infiltrates and consolidations*
+</td>
+</tr>
+</table>
+
+**Example 3: Model Attention on Pneumonia Cases**
+
+| Pneumonia Case 1 | Pneumonia Case 2 | Pneumonia Case 3 |
+|:---:|:---:|:---:|
+| ![Case 1](reports/gradcam_pneumonia_1.png) | ![Case 2](reports/gradcam_pneumonia_2.png) | ![Case 3](reports/gradcam_pneumonia_3.png) |
+
+*Grad-CAM heatmaps showing where the AI model focuses to detect pneumonia - red/hot areas indicate high attention on infiltrates and consolidations in the lung regions*
 
 ### Key Features:
 1. **Upload** any chest X-ray image (JPEG/PNG)
