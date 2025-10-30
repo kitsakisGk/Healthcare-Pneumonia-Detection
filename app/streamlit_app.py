@@ -100,8 +100,15 @@ def load_model():
         nn.Linear(256, 2)
     )
 
-    # Load trained weights
-    model.load_state_dict(torch.load('../models/resnet50_pneumonia.pth', map_location=device))
+    # Load trained weights from checkpoint
+    checkpoint = torch.load('../models/resnet50_pneumonia.pth', map_location=device)
+
+    # Extract model state dict from checkpoint
+    if 'model_state_dict' in checkpoint:
+        model.load_state_dict(checkpoint['model_state_dict'])
+    else:
+        model.load_state_dict(checkpoint)
+
     model = model.to(device)
     model.eval()
 
