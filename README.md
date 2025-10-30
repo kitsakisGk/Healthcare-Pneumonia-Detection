@@ -122,14 +122,43 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Quick Demo
+## 🚀 Live Application Demo
 
-The interactive web application allows you to:
+### Interactive Web Application
 
+The Streamlit web app provides a professional, user-friendly interface for real-time pneumonia detection with explainable AI.
+
+**App Features:**
+- Upload chest X-ray images (JPEG/PNG)
+- Instant predictions with confidence scores
+- Grad-CAM heatmap visualizations
+- Downloadable analysis reports
+- Professional medical disclaimers
+
+### Sample Results
+
+#### Example 1: Pneumonia Detection
+![Analysis Report](reports/pneumonia_analysis_pneumonia.png)
+*Complete analysis showing prediction (PNEUMONIA 69.5% confidence) with Grad-CAM heatmap highlighting affected lung regions*
+
+#### Example 2: Grad-CAM Comparison
+![Grad-CAM Summary](reports/gradcam_summary.png)
+*Side-by-side comparison of original X-rays and Grad-CAM heatmaps for both NORMAL and PNEUMONIA cases*
+
+#### Example 3: Model Attention Regions
+<div style="display: flex; gap: 10px;">
+  <img src="reports/gradcam_pneumonia_1.png" width="400" alt="Pneumonia Case 1"/>
+  <img src="reports/gradcam_pneumonia_2.png" width="400" alt="Pneumonia Case 2"/>
+</div>
+
+*Grad-CAM heatmaps showing where the model focuses to detect pneumonia - red/hot areas indicate high attention on infiltrates and consolidations*
+
+### Key Features:
 1. **Upload** any chest X-ray image (JPEG/PNG)
 2. **Get instant predictions** with confidence scores
 3. **View Grad-CAM heatmaps** showing where the AI focuses
 4. **Download analysis reports** for documentation
+5. **Professional medical disclaimer** for ethical use
 
 **Try it yourself:**
 ```bash
