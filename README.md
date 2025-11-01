@@ -1,3 +1,20 @@
+# Healthcare Pneumonia Detection
+
+<div align="center">
+
+## AI-Powered Pneumonia Detection from Chest X-Rays
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.8.0-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.30.0-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Computer%20Vision-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+
+**Author:** Georgios Kitsakis
+
+</div>
+
+---
+
 # AI-Powered Pneumonia Detection from Chest X-Rays
 
 **Author:** Georgios Kitsakis
